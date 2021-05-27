@@ -79,17 +79,7 @@ public class Root extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "english-uzbek":
-                    selectLanguage = true;
-                    language = "en-uzb";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+
                 case "russian-turkish":
                     selectLanguage = true;
                     language = "ru-tr";
@@ -101,17 +91,7 @@ public class Root extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "russian-uzbek":
-                    selectLanguage = true;
-                    language = "ru-uz";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+
                 case "turkish-english":
                     selectLanguage = true;
                     language = "tr-en";
@@ -123,17 +103,7 @@ public class Root extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "turkish-uzbek":
-                    selectLanguage = true;
-                    language = "tr-uz";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+
                 case "turkish-russian":
                     selectLanguage = true;
                     language = "tr-ru";
@@ -145,39 +115,7 @@ public class Root extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "uzbek-russian":
-                    selectLanguage = true;
-                    language = "uz-ru";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case "uzbek-english":
-                    selectLanguage = true;
-                    language = "uz-en";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case "uzbek-turkish":
-                    selectLanguage = true;
-                    language = "uz-tr";
-                    sendMessage.setText("Enter word:");
-                    try {
-                        sendMessage.setChatId(update.getMessage().getChatId());
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+
                 default:
                     activeWordMap.put(update.getMessage().getChat().getUserName(),update.getMessage().getText());
                     break;
@@ -228,20 +166,13 @@ public class Root extends TelegramLongPollingBot {
         KeyboardRow row4 = new KeyboardRow();
         row1.add(new KeyboardButton("english-russian"));
         row1.add(new KeyboardButton("english-turkish"));
-        row1.add(new KeyboardButton("english-uzbek"));
         row2.add(new KeyboardButton("russian-english"));
         row2.add(new KeyboardButton("russian-turkish"));
-        row2.add(new KeyboardButton("russian-uzbek"));
         row3.add(new KeyboardButton("turkish-english"));
         row3.add(new KeyboardButton("turkish-russian"));
-        row3.add(new KeyboardButton("turkish-uzbek"));
-        row4.add(new KeyboardButton("uzbek-english"));
-        row4.add(new KeyboardButton("uzbek-russian"));
-        row4.add(new KeyboardButton("uzbek-turkish"));
         keyboardRows.add(row1);
         keyboardRows.add(row2);
         keyboardRows.add(row3);
-        keyboardRows.add(row4);
         replyKeyboardMarkup.setKeyboard(keyboardRows);
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
     }
